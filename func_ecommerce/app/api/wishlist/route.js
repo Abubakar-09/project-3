@@ -20,7 +20,7 @@ export async function POST(req) {
         // Add the new item to the wishlist
         wishlist.push(data);
         //sending update data on products
-        const res = await fetch('http://localhost:3000/api/products', {
+        const res = await fetch('https://funcecommerce.vercel.app/api/products', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ export async function DELETE(req) {
         }
 
         // Send the updated wishlist to the products API
-        const res = await fetch('http://localhost:3000/api/products', {
+        const res = await fetch('https://funcecommerce.vercel.app/api/products', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
