@@ -108,8 +108,8 @@ export async function POST(req) {
     const body = await req.json();
 
     // Fetch cart items and products
-    const cartItems = await fetchData("http://localhost:3000/api/cart");
-    const products = await fetchData("http://localhost:3000/api/products");
+    const cartItems = await fetchData("https://funcecommerce.vercel.app/api/cart");
+    const products = await fetchData("https://funcecommerce.vercel.app/api/products");
 
     // Process cart items
     const processedCart = processCartItems(cartItems);
@@ -142,14 +142,14 @@ export async function POST(req) {
     orders.push({ status: true, id: `${body.phone}`, arr:processedCart });
 
     // Send updated products array to the API
-    await fetch("http://localhost:3000/api/products", {
+    await fetch("https://funcecommerce.vercel.app/api/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedProducts),
     });
 
     // Clear the cart
-    await fetch("http://localhost:3000/api/cart", {
+    await fetch("https://funcecommerce.vercel.app/api/cart", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify([]),
