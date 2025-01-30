@@ -31,7 +31,7 @@ const Navbar = () => {
         setorder(b.length)
       }
       orderdata() 
-    })
+    }, [])
     
 
     return (
